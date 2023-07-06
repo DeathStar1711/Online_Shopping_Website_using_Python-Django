@@ -1,0 +1,50 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block navbar %}
+<div>
+            <ul id="navbar">
+                <li><a href="/">Home</a></li>
+                <li><a class="active" href="/shop">Shop</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+{% endblock %}
+{% block body %}
+    <section id="page-header">
+
+        <h2>#stayhome</h2>
+
+        <p>Save more with coupons & up to 70% off!</p>
+
+    </section>
+
+    <section id="product1" class="section-p1">
+        <div class="pro-container">
+        {% for prod in products %}
+        <div class="pro">
+            <img src="/media/{{ prod.product_image }}" alt=""
+                 onclick="window.location.href='/product_view/{{ prod.id }}';">
+            <div class="des">
+                <span>addidas</span>
+                <h5 onclick="window.location.href='/product_view/{{ prod.id }}';">{{ prod.product_name }}</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>₹{{ prod.product_price }}</h4>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart" onclick="window.location.href='cart.html';"
+                           onclick="window.location.href='cart.html';"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <section id="pagination" class="section-p1">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+    </section>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block navbar %}
+<div>
+    <ul id="navbar">
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+{% endblock %}
+{% block body %}
+    <section id="page-header" class="about-header">
+
+        <h2>#cart</h2>
+        <p>Add your coupon code & SAVE upto 70%!</p>
+
+    </section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+
+            <tbody id="items">
+            </tbody>
+        </table>
+    </section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="cuopon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" name="" id="" placeholder="Enter Your Coupon">
+                <button class="normal">Apply</button>
+            </div>
+        </div>
+
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td id="subtotalele"></td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong id="total"></strong></td>
+                </tr>
+            </table>
+            <span id="checkoutbutton"><button class="normal" onclick="window.location.href='/checkout';">Proceed to checkout</button></span>
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+<script>
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+console.log(cart);
+var sum = 0;
+var prprice = 0;
+var totalPrice = 0;
+if ($.isEmptyObject(cart)) {
+    //if object is empty
+    mystr = `<p>Your cart is empty, please add some items to your cart before checking out!</p>`
+    $('#items').append(mystr);
+    document.getElementById('checkoutbutton').innerHTML = "<button class='normal' disabled>Proceed to checkout</button>";
+
+} else {
+    for (item in cart) {
+        let name = cart[item][1];
+        let qty = cart[item][0];
+        let img_src = cart[item][2];
+        let price = cart[item][3];
+        sum = sum + qty;
+        prprice = qty*price;
+        totalPrice = totalPrice + qty * price
+        mystr = `<tr>
+                    <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+                    <td><img src="${img_src}" alt=""></td>
+                    <td>${name}</td>
+                    <td>₹1299</td>
+                    <td><input type="number" value="${qty}" name="" id=""></td>
+                    <td>₹${prprice}</td>
+                </tr>`
+        $('#items').append(mystr);
+    }
+}
+
+document.getElementById('cart').innerHTML = sum;
+document.getElementById('subtotalele').innerHTML = "₹"+totalPrice;
+document.getElementById('total').innerHTML = "₹"+totalPrice;
+localStorage.setItem('totalPrice', totalPrice);
+localStorage.setItem('sum', sum);
+</script>
+{% endblock %}

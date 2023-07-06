@@ -1,0 +1,70 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block navbar %}
+<div>
+            <ul id="navbar">
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a class="active" href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+{% endblock %}
+{% block body %}
+
+    <section id="page-header" class="about-header">
+
+        <h2>#KnowUs </h2>
+
+        <p>Synergic Webdevs </p>
+
+    </section>
+
+    <section id="about-head" class="section-p1">
+        <img src="{% static 'img/about/a6.jpg' %}" alt="">
+        <div>
+            <h2>Who We Are?</h2>
+            <p>This is an e-commerce website devloped by Shubham Kumar Sahoo and Parag Dhama, students of KIIT University persuing B. Tech in Computer Science. This is an e-commerce website created by us.The purpose of website is advertisement and selling of merchandise.With cool and funky designs this is a complete show stopper. Taking route to high end fashion this is website is aestheticised.</p>
+
+            <abbr title="">A group of 2 students (Shubham Kumar Sahoo, Parag Dhama), of KIIT university Bhubaneswar.</abbr>
+
+            <br><br>
+
+            <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">A group of 4 students (Shubham Kumar Sahoo, Parag Dhama, ), of KIIT university Bhubaneswar.
+            </marquee>
+        </div>
+    </section>
+
+    <section id="about-app" class="section-p1">
+        <h1>Download Our <a href="#">App</a> </h1>
+        <div class="video">
+            <video autoplay muted loop src="{% static 'img/about/1.mp4' %}"></video>
+        </div>
+    </section>
+
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="{% static 'img/features/f1.png' %}" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'img/features/f2.png' %}" alt="">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'img/features/f3.png' %}" alt="">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'img/features/f4.png' %}" alt="">
+            <h6>Promotions</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'img/features/f5.png' %}" alt="">
+            <h6>Happy Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'img/features/f6.png' %}" alt="">
+            <h6>F24/7 Support</h6>
+        </div>
+    </section>
+{% endblock %}
