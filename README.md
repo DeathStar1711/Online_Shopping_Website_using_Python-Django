@@ -1,6 +1,6 @@
 # Online Shopping Website using Python-Django
 
-![](https://github.com/Online_Shopping_Website_using_Python-Django/addidas.gif)
+<img src="https://github.com/DeathStar1711/Online_Shopping_Website_using_Python-Django/raw/master/addidas.gif" alt="" style="display: inline-block;" data-target="animated-image.originalImage" width="500">
 
 ## Description
 This project is an online shopping website developed using Python and the Django framework. It aims to provide users with a seamless online shopping experience, including browsing products, adding items to a cart, and managing orders.
